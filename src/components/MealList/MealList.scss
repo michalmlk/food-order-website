@@ -1,0 +1,20 @@
+.meals-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+
+    .list-header {
+        h1 {
+         color: #3c3c3c;
+        } 
+        margin-bottom: 2rem;
+     }
+     
+     .menu-list {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+         gap: 1rem;
+     }
+}
