@@ -5,13 +5,21 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+    /* variables */
+
+    --color-primary: rgb(197, 164, 19);
+    --color-background-light: #fff;
+    --color-background-dark: #242424;
+    --color-accent: rgb(219, 131, 0);
+
 }
 
 a {
