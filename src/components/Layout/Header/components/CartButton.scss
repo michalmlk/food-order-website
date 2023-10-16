@@ -1,0 +1,31 @@
+.cart-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 25px;
+    background-color: var(--color-accent);
+    color: #fff;
+    transition: all .2s ease;
+    width: 150px;
+    height: 50px;
+
+    &:hover {
+        border-color: transparent;
+        background-color: rgb(186, 112, 1);
+    }
+
+    .items-counter {
+        border-radius: 50px;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        background-color: red;
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}

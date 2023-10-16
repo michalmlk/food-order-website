@@ -1,0 +1,25 @@
+.meal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: start;
+    align-items: center;
+    max-width: 150px;
+
+    .input {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        input {
+            width: 65px;
+            height: 35px;
+            padding-block: 0;
+            padding-inline: 0;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+    }
+}
