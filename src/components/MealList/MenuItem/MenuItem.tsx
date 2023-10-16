@@ -1,14 +1,7 @@
 import React from 'react';
 import './MenuItem.scss';
-import Button from '../../UI/Button/Button';
-
-interface Meal {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    alergens: Array<string>;
-}
+import MenuItemForm from './MenuItemForm/MenuItemForm';
+import { Meal } from '../../../common/model';
 
 const MenuItem: React.FC<{ meal: Meal }> = ({ meal }) => {
     return (
@@ -17,7 +10,8 @@ const MenuItem: React.FC<{ meal: Meal }> = ({ meal }) => {
                 <h2>{meal.name}</h2>
                 <div className="details">{meal.description}</div>
             </div>
-            <Button onClick={() => console.log('added')}>${meal.price.toString()}</Button>
+            <MenuItemForm item={meal} />
+            {/* <Button onClick={() => console.log('added')}>${meal.price.toString()}</Button> */}
         </div>
     );
 };

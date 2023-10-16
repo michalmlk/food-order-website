@@ -1,9 +1,8 @@
 import React from 'react';
 import Card from '../UI/Card/Card';
-import './MealList.scss';
-
 import { MOCKED_MEALS } from '../../assets/mockedMeals';
 import MenuItem from './MenuItem/MenuItem';
+import './MealList.scss';
 
 const MealList: React.FC<{}> = () => {
     return (
@@ -14,8 +13,7 @@ const MealList: React.FC<{}> = () => {
                 </div>
                 <div className="menu-list">
                     {MOCKED_MEALS.map((meal) => {
-                        console.log(meal);
-                        return <MenuItem meal={meal} />;
+                        return <MenuItem key={meal.id} meal={meal} />;
                     })}
                 </div>
             </div>

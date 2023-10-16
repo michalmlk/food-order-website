@@ -10,7 +10,7 @@ const Header: React.FC<HeaderProps> = ({ onCartOpen }) => {
     return (
         <header className="header">
             <h1>TypycalReactMeals 🌯🍕</h1>
-            <CartButton onClick={onCartOpen} itemsCount={0} />
+            <CartButton onClick={onCartOpen} />
         </header>
     );
 };
