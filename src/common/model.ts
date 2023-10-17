@@ -9,4 +9,5 @@ export interface Meal {
 export interface CartItem {
     totalPrice: number;
     item: Meal;
+    amount: number;
 }

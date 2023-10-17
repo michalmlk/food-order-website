@@ -1,5 +1,5 @@
 import React, { ReactElement, createContext, useState } from 'react';
-import { Meal } from '../common/model';
+import { Meal, CartItem } from '../common/model';
 
 export const CartContext = createContext({
     cartItemsCount: 0,
@@ -8,23 +8,35 @@ export const CartContext = createContext({
     handleRemoveItem: (id: number) => {},
 });
 
-interface CartItem {
-    totalPrice: number;
-    item: Meal;
-}
-
 const CartProvider: React.FC<{ children: ReactElement | ReactElement[] }> = ({ children }) => {
     const [cartItems, setItems] = useState<Array<CartItem>>([]);
     const [cartItemsCount, setCartItemsCount] = useState(0);
 
     const handleAddItems = (item: Meal, amount: number) => {
-        setItems((prevItems) => [
-            ...prevItems,
-            {
-                item,
-                totalPrice: item.price * amount,
-            },
-        ]);
+        const presentedItem = cartItems.filter((i) => i.item.id === item.id)[0];
+
+        if (!!presentedItem) {
+            const modifiedItems = cartItems.map((i) => {
+                if (i.item.id === item.id) {
+                    return {
+                        item,
+                        amount: presentedItem.amount + Number(amount),
+                        totalPrice: i.totalPrice + i.item.price * Number(amount),
+                    };
+                }
+                return i;
+            });
+            setItems(modifiedItems);
+        } else {
+            setItems((prevItems) => [
+                ...prevItems,
+                {
+                    item,
+                    amount: Number(amount),
+                    totalPrice: item.price * Number(amount),
+                },
+            ]);
+        }
         setCartItemsCount((prev) => prev + Number(amount));
     };
 

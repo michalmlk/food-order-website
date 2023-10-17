@@ -1,17 +1,22 @@
 import React from 'react';
 import './Header.scss';
 import CartButton from './components/CartButton';
+import useModal from '../../../hooks/useModal';
+import CartModal from '../../Modal/CartModal/CartModal';
 
-interface HeaderProps {
-    onCartOpen: () => void;
-}
+const Header: React.FC<{}> = () => {
+    const { isShowing, toggle } = useModal();
 
-const Header: React.FC<HeaderProps> = ({ onCartOpen }) => {
     return (
-        <header className="header">
-            <h1>TypycalReactMeals 🌯🍕</h1>
-            <CartButton onClick={onCartOpen} />
-        </header>
+        <>
+            {isShowing && (
+                <CartModal isShowing={isShowing} onHide={toggle} onOrder={() => console.log('ordering...')} />
+            )}
+            <header className="header">
+                <h1>TypycalReactMeals 🌯🍕</h1>
+                <CartButton onClick={toggle} />
+            </header>
+        </>
     );
 };
 

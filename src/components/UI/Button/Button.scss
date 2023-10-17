@@ -17,4 +17,9 @@
         border-color: transparent;
         background-color: rgb(186, 112, 1);
     }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: rgb(241, 170, 63);
+    }
 }

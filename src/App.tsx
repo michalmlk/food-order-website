@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import Header from './components/Layout/Header/Header';
 import PageContent from './components/Layout/PageContent/PageContent';
@@ -8,7 +7,7 @@ import CartProvider from './context/CartContext';
 function App() {
     return (
         <CartProvider>
-            <Header onCartOpen={() => console.log('cart opened')} />
+            <Header />
             <PageContent>
                 <MealList />
             </PageContent>
