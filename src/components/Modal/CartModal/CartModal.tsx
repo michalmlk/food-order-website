@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartArrowDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../../../context/CartContext';
 import CartPositionItem from './CartPositionItem/CartPositionItem';
-import './CartModal.styles.scss';
 import { CartItem } from '../../../common/model';
+import './CartModal.styles.scss';
 
 interface ModalWrapperProps {
     isShowing: boolean;
