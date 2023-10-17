@@ -17,7 +17,15 @@ const MenuItemForm: React.FC<{ item: Meal }> = ({ item }): ReactElement => {
     return (
         <div className="meal-form">
             <div className="input">
-                <input type="number" id="amount" onChange={handleDisableSubmitButton} ref={amountRef} defaultValue={1} min={1} step={1} />
+                <input
+                    type="number"
+                    id="amount"
+                    onChange={handleDisableSubmitButton}
+                    ref={amountRef}
+                    defaultValue={1}
+                    min={1}
+                    step={1}
+                />
             </div>
             <Button onClick={() => handleAddItems(item, amountRef.current.value)} disabled={disabled}>
                 $ {item.price.toString()}

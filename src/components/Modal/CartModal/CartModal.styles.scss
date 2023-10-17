@@ -13,8 +13,24 @@
         align-items: center;
     }
 
+    .order-summary {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 2rem;
+
+        h3 {
+            text-align: end;
+        }
+    }
+
     .modal-footer {
         display: flex;
         justify-content: space-between;
+    }
+
+    .summary-list {
+        max-height: 640px;
+        flex-grow: 1;
+        overflow-y: scroll;
     }
 }

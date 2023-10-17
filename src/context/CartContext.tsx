@@ -41,8 +41,11 @@ const CartProvider: React.FC<{ children: ReactElement | ReactElement[] }> = ({ c
     };
 
     const handleRemoveItem = (id: number) => {
+        console.log(cartItems);
         const filteredItems = cartItems.filter((i) => i.item.id !== id);
         setItems(filteredItems);
+        const currentDeletingItem = cartItems.find((item) => item.item.id === id);
+        setCartItemsCount((prev) => (currentDeletingItem ? prev - currentDeletingItem.amount : prev));
     };
 
     return (
