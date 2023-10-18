@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Ubuntu, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   background-color: #ffffff;
@@ -12,12 +12,33 @@
 
     /* variables */
 
-    --color-primary: rgb(197, 164, 19);
+    --color-primary: rgb(202, 80, 15);
     --color-background-light: #fff;
     --color-background-dark: #242424;
-    --color-accent: rgb(219, 131, 0);
+    --color-accent: rgb(245, 167, 49);
 
-}
+    /* button primary */
+
+    --color-button: #fff;
+    --color-button-background: var(--color-accent);
+    --color-button-background--hover: rgb(186, 112, 1);
+    --color-button-background--not-allowed: rgb(255, 205, 131);
+
+    /* button secondary */
+
+    --color-button-secondary: var(--color-accent);
+    --color-button-background-secondary: #fff;
+    --color-button-secondary--hover: rgb(132, 80, 1);
+    --color-button-background-secondary--hover: #ddd;
+
+    /* card */
+
+    --card-border-radius: 15px;
+    --card-box-shadow: 2px 3px 15px 0px rgba(66, 68, 90, 1);
+
+    --menu-item-box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+  }
+
 
 a {
   font-weight: 500;
@@ -52,24 +73,4 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

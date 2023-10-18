@@ -1,17 +1,15 @@
-import React, { ReactElement } from 'react';
+import React, { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import './Modal.scss';
 import Card from '../UI/Card/Card';
+import './Modal.scss';
 
-const Modal = ({
-    isShowing,
-    hide,
-    children,
-}: {
+export interface ModalWrapperProps {
     isShowing: boolean;
     hide: () => void;
-    children: ReactElement | ReactElement[];
-}) =>
+    children: ReactNode | undefined;
+}
+
+const Modal: React.FC<ModalWrapperProps> = ({ isShowing, hide, children }) =>
     isShowing && (
         <>
             {createPortal(

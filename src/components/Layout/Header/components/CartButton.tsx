@@ -13,7 +13,7 @@ const CartButton: React.FC<CartButtonProps> = ({ onClick }) => {
     return (
         <button className="cart-button" onClick={onClick}>
             <p>
-                <FontAwesomeIcon icon={faCartShopping} /> Order
+                <FontAwesomeIcon icon={faCartShopping} /> Cart
             </p>
             <p className="items-counter">{cartItemsCount}</p>
         </button>
