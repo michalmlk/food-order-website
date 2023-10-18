@@ -8,12 +8,6 @@ import CartPositionItem from './CartPositionItem/CartPositionItem';
 import { CartItem } from '../../../common/model';
 import './CartModal.styles.scss';
 
-interface ModalWrapperProps {
-    isShowing: boolean;
-    onHide: () => void;
-    onOrder: () => void;
-}
-
 const CartModal: React.FC<ModalWrapperProps> = ({ isShowing, onHide, onOrder }) => {
     const { cartItems } = useContext(CartContext);
 
