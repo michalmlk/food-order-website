@@ -6,9 +6,10 @@ import { faCartArrowDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../../../context/CartContext';
 import CartPositionItem from './CartPositionItem/CartPositionItem';
 import { CartItem } from '../../../common/model';
+import { ModalWrapperProps } from '../Modal';
 import './CartModal.styles.scss';
 
-const CartModal: React.FC<ModalWrapperProps> = ({ isShowing, onHide, onOrder }) => {
+const CartModal: React.FC<ModalWrapperProps> = ({ isShowing, onHide }) => {
     const { cartItems } = useContext(CartContext);
 
     const totalValue = cartItems.reduce((acc: number, item: CartItem) => acc + item.totalPrice, 0);
@@ -29,10 +30,10 @@ const CartModal: React.FC<ModalWrapperProps> = ({ isShowing, onHide, onOrder }) 
                     <h3>Total: ${totalValue.toFixed(2)}</h3>
                 </div>
                 <div className="modal-footer">
-                    <Button onClick={onHide}>
+                    <Button onClick={onHide} secondary>
                         <FontAwesomeIcon icon={faTimes} /> Cancel
                     </Button>
-                    <Button onClick={onOrder}>
+                    <Button onClick={() => console.log('xd')}>
                         <FontAwesomeIcon icon={faCartArrowDown} /> Order
                     </Button>
                 </div>

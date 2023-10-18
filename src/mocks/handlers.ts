@@ -13,5 +13,4 @@ export const handlers = [
     rest.post('/order', (req, res, ctx) => {
         alert('Order finished');
     })
-
 ]

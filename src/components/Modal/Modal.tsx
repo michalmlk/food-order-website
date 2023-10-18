@@ -5,15 +5,15 @@ import './Modal.scss';
 
 export interface ModalWrapperProps {
     isShowing: boolean;
-    hide: () => void;
+    onHide: () => void;
     children: ReactNode | undefined;
 }
 
-const Modal: React.FC<ModalWrapperProps> = ({ isShowing, hide, children }) =>
+const Modal: React.FC<ModalWrapperProps> = ({ isShowing, onHide, children }) =>
     isShowing && (
         <>
             {createPortal(
-                <div className="modal-backdrop" onClick={hide} />,
+                <div className="modal-backdrop" onClick={onHide} />,
                 document.getElementById('modal-backdrop')!
             )}
             {createPortal(
