@@ -3,8 +3,8 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    border-radius: 25px;
-    box-shadow: 2px 3px 52px -28px rgba(66, 68, 90, 1);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--menu-item-box-shadow);
     padding: 1rem 2rem;
 
     .details {

@@ -1,30 +1,24 @@
 import React, { useContext } from 'react';
 import { CartItem } from '../../../../common/model';
-import './CartPositionItem.scss';
 import Button from '../../../UI/Button/Button';
 import { CartContext } from '../../../../context/CartContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import './CartPositionItem.scss';
 
 interface CartPositionItemProps {
     item: CartItem;
 }
 
 const CartPositionItem: React.FC<CartPositionItemProps> = ({ item }) => {
-    const { handleRemoveItem, cartItems } = useContext(CartContext);
+    const { handleRemoveItem, handleAddItems } = useContext(CartContext);
     return (
         <div className="cart-item">
             <h3>{item.item.name}</h3>
             <div className="details">
-                <p>Amount: {item.amount}</p>
-                <Button
-                    onClick={() => {
-                        console.log('click');
-                        handleRemoveItem(item.item.id);
-                    }}
-                >
-                    <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
-                </Button>
+                <Button onClick={() => handleRemoveItem(item.item.id, true)} secondary icon={faMinus} />
+                <p>{item.amount}</p>
+                <Button onClick={() => handleAddItems(item.item, 1)} secondary icon={faPlus} />
+                <Button onClick={() => handleRemoveItem(item.item.id)} icon={faTimes} />
             </div>
         </div>
     );

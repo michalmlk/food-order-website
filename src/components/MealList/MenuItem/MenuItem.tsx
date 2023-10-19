@@ -1,7 +1,7 @@
 import React from 'react';
-import './MenuItem.scss';
 import MenuItemForm from './MenuItemForm/MenuItemForm';
 import { Meal } from '../../../common/model';
+import './MenuItem.scss';
 
 const MenuItem: React.FC<{ meal: Meal }> = ({ meal }) => {
     return (
