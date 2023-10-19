@@ -11,7 +11,6 @@ interface CartButtonProps {
 const CartButton: React.FC<CartButtonProps> = ({ onClick }) => {
     const { cartItemsCount } = useContext(CartContext);
     const [isAdd, setIsAdd] = useState(false);
-
     const btnClassNames = `cart-button ${isAdd ? 'bump' : ''}`;
 
     useEffect(() => {
