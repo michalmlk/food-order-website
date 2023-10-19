@@ -7,7 +7,7 @@ import './Modal.scss';
 export interface ModalWrapperProps {
     isShowing: boolean;
     onHide: () => void;
-    children: ReactNode | undefined;
+    children?: ReactNode | undefined;
 }
 
 const Modal: React.FC<ModalWrapperProps> = ({ isShowing, onHide, children }) =>
