@@ -8,7 +8,7 @@
     color: #fff;
     width: 150px;
     height: 50px;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
 
     &.bump {
         animation: bump 300ms ease-out;

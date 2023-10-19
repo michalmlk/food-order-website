@@ -1,8 +1,8 @@
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import './CartButton.scss';
+import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../../../context/CartContext';
+import './CartButton.scss';
 
 interface CartButtonProps {
     onClick: () => void;
