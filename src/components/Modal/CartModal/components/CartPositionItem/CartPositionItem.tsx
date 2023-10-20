@@ -1,25 +1,15 @@
 import React, { useContext } from 'react';
-import { CartItem } from '../../../../common/model';
-import Button from '../../../UI/Button/Button';
-import { CartContext } from '../../../../context/CartContext';
+import { CartItem } from '../../../../../common/model';
+import Button from '../../../../UI/Button/Button';
+import { CartContext } from '../../../../../context/CartContext';
 import { faMinus, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import './CartPositionItem.scss';
+import { variants } from '../../../../../common/animations';
 
 interface CartPositionItemProps {
     item: CartItem;
 }
-
-const variants = {
-    hidden: {
-        y: -50,
-        opacity: 0,
-    },
-    visible: {
-        y: 0,
-        opacity: 1,
-    },
-};
 
 const CartPositionItem: React.FC<CartPositionItemProps> = ({ item }) => {
     const { handleRemoveItem, handleAddItems } = useContext(CartContext);

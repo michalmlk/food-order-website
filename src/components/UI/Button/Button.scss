@@ -43,8 +43,10 @@
         background-color: var(--color-button-background--hover);
     }
 
-    &:disabled {
+    &:disabled, &:disabled:hover {
         cursor: not-allowed;
         background-color: var(--color-button-background--not-allowed);
+        color: var(--color-button-not-allowed);
+        border-color: var(--color-button-border--not-allowed);
     }
 }
