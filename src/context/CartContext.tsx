@@ -1,16 +1,32 @@
 import React, { ReactElement, createContext, useState } from 'react';
 import { Meal, CartItem } from '../common/model';
+import { PaymentMethodProps } from '../common/model';
+import { PAYMENT_METHODS } from '../common/utils';
+
+export enum OrderStep {
+    SUMMARY,
+    ORDER_DATA,
+    PAYMENT,
+    FINALIZATION,
+}
 
 export const CartContext = createContext({
     cartItemsCount: 0,
+    paymentMethod: {},
     cartItems: [],
+    orderStep: OrderStep.SUMMARY,
     handleAddItems: (item: any, amount: number) => {},
     handleRemoveItem: (id: number, isSubtraction?: boolean) => {},
+    handleNextStep: () => {},
+    handlePrevStep: () => {},
+    handlePaymentMethodChange: (id: number) => {},
 });
 
 const CartProvider: React.FC<{ children: ReactElement | ReactElement[] }> = ({ children }) => {
     const [cartItems, setItems] = useState<Array<CartItem>>([]);
     const [cartItemsCount, setCartItemsCount] = useState(0);
+    const [orderStep, setOrderStep] = useState<OrderStep>(OrderStep.SUMMARY);
+    const [paymentMethod, setPaymentMethod] = useState<PaymentMethodProps>(PAYMENT_METHODS[0]);
 
     const handleAddItems = (item: Meal, amount: number) => {
         const presentedItem = cartItems.filter((i) => i.item.id === item.id)[0];
@@ -62,13 +78,34 @@ const CartProvider: React.FC<{ children: ReactElement | ReactElement[] }> = ({ c
         }
     };
 
+    const handleNextStep = (): void => {
+        if (orderStep !== OrderStep.FINALIZATION) {
+            setOrderStep((prev) => prev + 1);
+        }
+    };
+
+    const handlePaymentMethodChange = (id: number): void => {
+        setPaymentMethod(PAYMENT_METHODS.filter((p) => p.id === id)[0]);
+    };
+
+    const handlePrevStep = (): void => {
+        if (orderStep !== OrderStep.SUMMARY) {
+            setOrderStep((prev) => prev - 1);
+        }
+    };
+
     return (
         <CartContext.Provider
             value={{
                 cartItemsCount,
                 cartItems,
+                orderStep,
+                paymentMethod,
+                handlePaymentMethodChange,
                 handleAddItems,
                 handleRemoveItem,
+                handleNextStep,
+                handlePrevStep,
             }}
         >
             {children}

@@ -3,20 +3,17 @@
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    border-radius: 25px;
-    background-color: var(--color-accent);
-    color: #fff;
+    border-radius: var(--button-border-radius);
+    background-color: transparent;
+    border-color: var(--color-accent);
+    color: var(--color-button);
     width: 150px;
     height: 50px;
     transition: all 0.2s ease;
 
-    &.bump {
-        animation: bump 300ms ease-out;
-    }
-
     &:hover {
         border-color: transparent;
-        background-color: rgb(186, 112, 1);
+        background-color: var(--color-button-background--hover);
     }
 
     .items-counter {
@@ -31,20 +28,5 @@
 
     p {
         font-size: 1rem;
-    }
-
-    @keyframes bump {
-        0% {
-            transform: scale(1);
-        }
-        10%{
-            transform: scale(0.8);
-        }
-        50% {
-            transform: scale(1.1);
-        }
-        100%{
-            transform: scale(1);
-        }
     }
 }

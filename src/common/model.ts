@@ -11,3 +11,9 @@ export interface CartItem {
     item: Meal;
     amount: number;
 }
+
+export interface PaymentMethodProps {
+    id: number;
+    icon: any;
+    paymentName: string;
+}

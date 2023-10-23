@@ -1,0 +1,26 @@
+.payments-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .payment-method {
+        display: flex;
+        padding: 20px 30px;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: var(--card-border-radius);
+        transition: all 0.15s ease-out;
+    
+        p {
+            font-size: 1.4rem;
+        }
+
+        &:hover, &.selected {
+            background-color: var(--color-accent-hover);
+            border-color: var(--color-accent);
+            cursor: pointer;
+        }
+    }
+
+}

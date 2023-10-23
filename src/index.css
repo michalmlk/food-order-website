@@ -11,25 +11,30 @@
   -webkit-text-size-adjust: 100%;
 
     /* variables */
+    --color-background: rgb(82, 82, 82);
 
-    --color-primary: rgb(202, 80, 15);
+    --color-primary: rgb(18, 75, 161);
     --color-background-light: #fff;
-    --color-background-dark: #242424;
-    --color-accent: rgb(245, 167, 49);
+    --color-accent: rgb(113, 101, 225);
+    --color-accent-hover: rgb(213, 207, 255);
 
     /* button primary */
 
     --color-button: #fff;
     --color-button-background: var(--color-accent);
-    --color-button-background--hover: rgb(186, 112, 1);
-    --color-button-background--not-allowed: rgb(255, 205, 131);
+    --color-button-background--hover: rgb(47, 98, 239);
+    --color-button-background--not-allowed: rgb(240, 240, 240);
+    --button-border-radius: 12px;
 
     /* button secondary */
 
     --color-button-secondary: var(--color-accent);
     --color-button-background-secondary: #fff;
-    --color-button-secondary--hover: rgb(132, 80, 1);
+    --color-button-secondary--hover: rgb(3, 59, 182);
     --color-button-background-secondary--hover: #ddd;
+
+    --color-button-not-allowed: #b3b3b3;
+    --color-button-border--not-allowed: #b3b3b3;
 
     /* card */
 
@@ -52,15 +57,17 @@ a:hover {
 body {
   margin: 0;
   position: relative;
-  display: flex;
+  /* display: flex; */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-background);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--color-button);
 }
 
 button {
