@@ -10,9 +10,17 @@ interface ButtonProps {
     disabled?: boolean;
     secondary?: boolean;
     icon?: IconProp;
+    type?: 'button' | 'submit';
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, disabled = false, secondary = false, icon }) => {
+const Button: React.FC<ButtonProps> = ({
+    onClick,
+    children,
+    disabled = false,
+    secondary = false,
+    icon,
+    type = 'button',
+}) => {
     return (
         <motion.button
             className={`button ${secondary && 'secondary'} ${icon && 'icon'}`}
@@ -22,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, disabled = false, se
             transition={{
                 duration: 0.02,
             }}
+            type={type}
         >
             {!!icon ? <FontAwesomeIcon icon={icon!} /> : children}
         </motion.button>

@@ -21,7 +21,7 @@ const CartModal: React.FC<ModalWrapperProps> = ({ isShowing, onHide }) => {
     const totalValue = cartItems.reduce((acc: number, item: CartItem) => acc + item.totalPrice, 0);
 
     return (
-        <Modal isShowing={isShowing} hide={onHide}>
+        <Modal isShowing={isShowing} onHide={onHide}>
             <div className="cart-modal-content">
                 <div className="modal-header">
                     <h2>{cartModalHeadings[orderStep]}</h2>
@@ -31,7 +31,7 @@ const CartModal: React.FC<ModalWrapperProps> = ({ isShowing, onHide }) => {
                     <>
                         <motion.div className="summary-list" variants={container} initial="hidden" animate="visible">
                             {cartItems.length ? (
-                                cartItems.map((item) => <CartPositionItem key={item.item.id} item={item} />)
+                                cartItems.map((item: CartItem) => <CartPositionItem key={item.item.id} item={item} />)
                             ) : (
                                 <h2>Cart is empty... add sth delicious 🤤</h2>
                             )}

@@ -10,7 +10,12 @@ const mockedMeals = (req, res, ctx) => {
 
 export const handlers = [
     rest.get('/meals', mockedMeals),
-    rest.post('/order', (req, res, ctx) => {
+    rest.post('/order-data', async (req, res, ctx) => {
         alert('Order finished');
+        const body = await req.json();
+        console.log(body);
+        return res(
+            ctx.status(200)
+        )
     })
 ]
