@@ -4,21 +4,39 @@ import { motion } from 'framer-motion';
 import { container } from '../../../../../common/animations';
 import { CartContext } from '../../../../../context/CartContext';
 import { CartItem } from '../../../../../common/model';
+import { toast } from 'react-toastify';
 
 const OrderDataForm: React.FC<{}> = (): ReactElement => {
-    const { cartItems } = useContext(CartContext);
+    const { cartItems, paymentMethod } = useContext(CartContext);
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
-        const customerData = Object.fromEntries(formData.entries());
+        const toastId = toast.loading('Ordering...');
+        try {
+            const formData = new FormData(e.target);
+            const customerData = Object.fromEntries(formData.entries());
 
-        const orderItems = cartItems.map((item: CartItem) => ({
-            amount: item.amount,
-            name: item.item.name,
-        }));
+            const orderItems = cartItems.map((item: CartItem) => ({
+                amount: item.amount,
+                name: item.item.name,
+            }));
 
-        console.log(customerData, orderItems);
+            await fetch('http://localhost:3000/order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    paymentMethod,
+                    items: orderItems,
+                    customerData,
+                }),
+            });
+            toast.success('Order successfull');
+        } catch (e) {
+            toast.error('Failed to order.');
+        }
+        toast.dismiss(toastId);
     };
 
     return (

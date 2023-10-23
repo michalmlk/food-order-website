@@ -14,7 +14,7 @@ import { container } from '../../../common/animations';
 import ConfirmationModalContent from './components/ConfirmationModalContent/ConfirmationModalContent';
 import './CartModal.styles.scss';
 
-const cartModalHeadings = ['Summary', 'Order data', 'Payment', 'Finalization'];
+const cartModalHeadings = ['Summary', 'Payment', 'Order data', 'Finalization'];
 
 const CartModal: React.FC<ModalWrapperProps> = ({ isShowing, onHide }) => {
     const { cartItems, orderStep, handleNextStep, handlePrevStep } = useContext(CartContext);

@@ -5,8 +5,8 @@ import { PAYMENT_METHODS } from '../common/utils';
 
 export enum OrderStep {
     SUMMARY,
-    ORDER_DATA,
     PAYMENT,
+    ORDER_DATA,
     FINALIZATION,
 }
 

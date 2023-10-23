@@ -18,14 +18,12 @@ const container = {
 };
 
 const MealList: React.FC<{}> = () => {
-    const [meals, setMeals] = useState<Array<Meal>>();
+    const [meals, setMeals] = useState<Array<Meal>>([]);
+
     useEffect(() => {
-        // setTimeout for simulate behavior
-        setTimeout(() => {
-            fetch('/meals')
-                .then((res) => res.json())
-                .then((r) => setMeals(r));
-        }, 500);
+        fetch('http://localhost:3000/meals')
+            .then((res) => res.json())
+            .then((r) => setMeals(r));
     }, []);
 
     return (
